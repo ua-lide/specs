@@ -6,5 +6,5 @@
 
 ### API
 
-* [API Projets](api_project.md)
-* [API Fichier](api_file.md)
+* [API Projets](api/api_project.md)
+* [API Fichier](api/api_file.md)
