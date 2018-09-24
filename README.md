@@ -14,10 +14,6 @@
 
 [Voir la description globale ici](architecture/docker_server.md)
 
-### Spécifications technique
-
-[Voir les spécifications techniques]
-
 ### WebSocket
 
 * [Protocole Websocket](websocket.md)
