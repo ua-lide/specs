@@ -1,6 +1,6 @@
-# File API
+# API Fichier
 
-## Get all existing files in a projet
+## Récuperer tout les fichiers d'un projet
 
 ```
 GET /api/projet/{idProject}/files
@@ -13,20 +13,24 @@ Return :
         {
             "id": "1",
             "name": "file_name",
-            "path": "/path/in/project"
+            "path": "/path/in/project",
+            "created_at": "YYYY-MM-DD HH:mm:ss",
+            "updated_at": "YYYY-MM-DD HH:mm:ss"
         },
         {
             "id": "3",
             "name": "file_name",
-            "path": "/path/in/project"
+            "path": "/path/in/project",
+            "created_at": "YYYY-MM-DD HH:mm:ss",
+            "updated_at": "YYYY-MM-DD HH:mm:ss"
         },
         ...
     ]
 }
 ```
-Content of files is not returned by this request to avoid a heavy response.
+Le contenu des fichiers n'est pas retourné, afin d'éviter des réponses trop lourdes.
 
-## Get a file
+## Récuperer un fichier
 
 ```
 GET /api/projet/{idProject}/files/{idFile}
@@ -38,14 +42,16 @@ Return :
         "id": "1",
         "name": "file_name",
         "path": "/path/in/project",
-        "content": "content"
+        "content": "content",
+        "created_at": "YYYY-MM-DD HH:mm:ss",
+        "updated_at": "YYYY-MM-DD HH:mm:ss"
     }
 }
 ```
-Accepted parameters :
-* ``withContent`` : boolean (true/false/0/1), if false file content will not be returned.
+Paramètres de la requête :
+* ``withContent`` : booléen (true/false/0/1), si vrai le contenu du fichier est retourné
 
-## Add a file to a project
+## Ajouter un fichier à un projet
 ```
 POST /api/projet/{idProject}/files
 ```
@@ -58,16 +64,17 @@ POST /api/projet/{idProject}/files
     }
 }
 ```
-All fields are required. The tuple (name, path) must be unique in the project.
+Tout les champs sont requis. Le couple (`name`, `path`) est unique dans un projet.
 
-If success, the response will have a http code 200, and the same content as a GET response.
+Si la requête est valide, le fichier est créer et la response est la même que pour une requête GET. 
 
 If the form is not valid, the response will be a 422 http code with a content like
+Si le formulaire n'est pas valide, la reponse doit avoir un code htpp 422, avec un contenue tel :
 ```json
 [
     {
-        "field": "non_valid_field_name",
-        "error": "message describing the error"
+        "field": "nom_champ_invalide",
+        "error": "message decrivant l'erreur"
     },
     ...
 ]
@@ -85,11 +92,11 @@ PUT /api/projet/{idProject}/files
     }
 }
 ```
-No field is required. Missing field will be consired as if the value is not changed. Present fields have the same validation rules as in the create file request.
+Aucun champ n'est requis. Les champs manquant seront traité avec la valeur existante sur le serveur. Les champs présents ont les même règles de validations que pour la création.
 
-If success, the response will have a http code 200, and the same content as a GET response.
+Si la requête est valide, les données sont modifiées et la response est la même que pour une requête GET. 
 
-If the form is not valid, the response will be a 422 http code with a content like
+Si le formulaire n'est pas valide, la reponse doit avoir un code htpp 422, avec un contenue tel :
 ```json
 [
     {
@@ -99,3 +106,11 @@ If the form is not valid, the response will be a 422 http code with a content li
     ...
 ]
 ```
+## Supprimer un fichier
+
+```
+DELETE /api/projet/{idProject}/files
+```
+
+Reponse : code HTTP 200 (corps vide) si succès.
+
