@@ -1,8 +1,26 @@
-# Spécifications pour le projet LIDE
+# [WIP] Spécifications pour le projet LIDE
+
+## Architecture
+
+[Voir ici](architecture/global_architecture.md)
 
 ## Serveur Web
 
+[Voir la description globale ici](architecture/web_server.md)
+
+### API
+
 ## Serveur Docker
+
+[Voir la description globale ici](architecture/docker_server.md)
+
+### Spécifications technique
+
+[Voir les spécifications techniques]
+
+### WebSocket
+
+* [Protocole Websocket](websocket.md)
 
 ### API
 
