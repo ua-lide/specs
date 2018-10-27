@@ -1,7 +1,7 @@
 # API Gestion Environnement
 
-Cette API disponnible sur le serveur Docker et a pour but de gérer l'environnement lié à Docker en permettant d'utiliser les fonctionnalités de base de Docker et plus particulièrement
-la création d'images soumises par les administrateurs.
+Cette API disponible sur le serveur Docker a pour but de gérer l'environnement lié à Docker en permettant d'utiliser les fonctionnalités de base de Docker et plus particulièrement
+la création d'images soumises par les administrateurs. Cette API sera utilisée par le serveur WebSocket lors de ses intéractions avec Docker.
 
 ## lister les images disponibles
 ```
