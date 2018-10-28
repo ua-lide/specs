@@ -53,45 +53,6 @@ Réponse Json :
 }
 ```
 
-## lancer un conteneur depuis une image
-```
-/env/run/{imageId}
-```
-Réponse Json :
-```
-{
-  "data": {
-      "message" => "image started"
-  }
-}
-```
-
-## lancer un conteneur
-```
-/env/start/{containerId}
-```
-Réponse Json :
-```
-{
-  "data": {
-      "message" => "container started"
-  }
-}
-```
-
-## stopper un container
-```
-/env/stop/{containerId}
-```
-Réponse Json :
-```
-{
-  "data": {
-      "message" => "container stopped"
-  }
-}
-```
-
 ## supprimer une image
 ```
 /env/delete/{image}
